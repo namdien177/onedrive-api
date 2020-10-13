@@ -16,4 +16,9 @@ function ab() {
     graphDownloadURL: "123",
     itemId: "123",
   });
+
+  OneDrive.items.delete({
+    accessToken: "",
+    itemId: "",
+  });
 }

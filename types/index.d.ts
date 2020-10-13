@@ -276,14 +276,14 @@ export declare namespace items {
       // the item id
       itemId: string;
     }
-  ): Promise<void>;
+  ): Promise<boolean>;
 
   function _delete(
     options: BaseWithDrive & {
       // the item id
       itemId: string;
     }
-  ): Promise<void>;
+  ): Promise<boolean>;
 
   export { _delete as delete };
 }
