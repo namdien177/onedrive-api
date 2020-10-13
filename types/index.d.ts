@@ -22,137 +22,6 @@ export declare namespace items {
     }
   ): Promise<returnType>;
 
-  export function download(
-    options: BaseParameters & {
-      // the item id
-      itemId: string;
-    }
-  ): Promise<NodeJS.ReadableStream>;
-
-  export function getMetadata<itemMeta = any>(
-    options: BaseParameters & {
-      // the item id
-      itemId: string;
-    }
-  ): Promise<itemMeta>;
-
-  export function getMetadata<itemMeta = any>(
-    options: BaseWithDrive & {
-      // the item id
-      itemId: string;
-    }
-  ): Promise<itemMeta>;
-
-  /**
-   * List children of a folder.
-   * @param options
-   */
-  export function listChildren<returnType = any>(
-    options: BaseParameters & {
-      // Item or folder id
-      itemId?: ITEM_ID;
-    }
-  ): Promise<returnType>;
-  export function listChildren<returnType = any>(
-    options: BaseWithDrive & {
-      // Item or folder id
-      itemId?: ITEM_ID;
-    }
-  ): Promise<returnType>;
-
-  export function download<itemMeta = any>(
-    options: BaseWithDrive & {
-      // the item id
-      itemId: string;
-    }
-  ): Promise<NodeJS.ReadableStream>;
-
-  /**
-   * Download item content partially. You must either provide
-   * graphDownloadURL or the itemId to download the file.
-   *
-   * If only the itemId is provided, the function will try to get
-   * the download URL for you with additional getMetadata() function call.
-   * @param options
-   */
-  export function partialDownload(
-    options: BaseParameters &
-      DownloadBytes & {
-        // the item id
-        itemId: string;
-      }
-  ): Promise<NodeJS.ReadableStream>;
-
-  /**
-   * Download item content partially. You must either provide
-   * graphDownloadURL or the itemId to download the file.
-   *
-   * If only the itemId is provided, the function will try to get
-   * the download URL for you with additional getMetadata() function call.
-   * @param options
-   */
-  export function partialDownload(
-    options: BaseWithDrive &
-      DownloadBytes & {
-        // the item id
-        itemId: string;
-      }
-  ): Promise<NodeJS.ReadableStream>;
-
-  /**
-   * Download item content partially. You must either provide
-   * graphDownloadURL or the itemId to download the file.
-   *
-   * If only the itemId is provided, the function will try to get
-   * the download URL for you with additional getMetadata() function call.
-   * @param options
-   */
-  export function partialDownload(
-    options: BaseParameters &
-      DownloadBytes & {
-        // @microsoft.graph.downloadUrl of the item
-        graphDownloadURL: string;
-        // the item id
-        itemId?: string;
-      }
-  ): Promise<NodeJS.ReadableStream>;
-
-  /**
-   * Download item content partially. You must either provide
-   * graphDownloadURL or the itemId to download the file.
-   *
-   * If only the itemId is provided, the function will try to get
-   * the download URL for you with additional getMetadata() function call.
-   * @param options
-   */
-  export function partialDownload(
-    options: BaseWithDrive &
-      DownloadBytes & {
-        // @microsoft.graph.downloadUrl of the item
-        graphDownloadURL: string;
-        // the item id
-        itemId?: string;
-      }
-  ): Promise<NodeJS.ReadableStream>;
-
-  export function update<updatedItems = any>(
-    options: BaseParameters & {
-      // the item id
-      itemId: string;
-      // the object contains fields to update the item.
-      toUpdate: object;
-    }
-  ): Promise<updatedItems>;
-
-  export function update<updatedItems = any>(
-    options: BaseWithDrive & {
-      // the item id
-      itemId: string;
-      // the object contains fields to update the item.
-      toUpdate: object;
-    }
-  ): Promise<updatedItems>;
-
   /**
    * Create file with session upload.
    * Use this for the files over 4MB.
@@ -286,4 +155,135 @@ export declare namespace items {
   ): Promise<boolean>;
 
   export { _delete as delete };
+
+  export function download(
+    options: BaseParameters & {
+      // the item id
+      itemId: string;
+    }
+  ): NodeJS.ReadableStream;
+
+  export function download<itemMeta = any>(
+    options: BaseWithDrive & {
+      // the item id
+      itemId: string;
+    }
+  ): NodeJS.ReadableStream;
+
+  export function getMetadata<itemMeta = any>(
+    options: BaseParameters & {
+      // the item id
+      itemId: string;
+    }
+  ): Promise<itemMeta>;
+
+  export function getMetadata<itemMeta = any>(
+    options: BaseWithDrive & {
+      // the item id
+      itemId: string;
+    }
+  ): Promise<itemMeta>;
+
+  /**
+   * List children of a folder.
+   * @param options
+   */
+  export function listChildren<returnType = any>(
+    options: BaseParameters & {
+      // Item or folder id
+      itemId?: ITEM_ID;
+    }
+  ): Promise<returnType>;
+  export function listChildren<returnType = any>(
+    options: BaseWithDrive & {
+      // Item or folder id
+      itemId?: ITEM_ID;
+    }
+  ): Promise<returnType>;
+
+  /**
+   * Download item content partially. You must either provide
+   * graphDownloadURL or the itemId to download the file.
+   *
+   * If only the itemId is provided, the function will try to get
+   * the download URL for you with additional getMetadata() function call.
+   * @param options
+   */
+  export function partialDownload(
+    options: BaseParameters &
+      DownloadBytes & {
+        // the item id
+        itemId: string;
+      }
+  ): Promise<NodeJS.ReadableStream>;
+
+  /**
+   * Download item content partially. You must either provide
+   * graphDownloadURL or the itemId to download the file.
+   *
+   * If only the itemId is provided, the function will try to get
+   * the download URL for you with additional getMetadata() function call.
+   * @param options
+   */
+  export function partialDownload(
+    options: BaseWithDrive &
+      DownloadBytes & {
+        // the item id
+        itemId: string;
+      }
+  ): Promise<NodeJS.ReadableStream>;
+
+  /**
+   * Download item content partially. You must either provide
+   * graphDownloadURL or the itemId to download the file.
+   *
+   * If only the itemId is provided, the function will try to get
+   * the download URL for you with additional getMetadata() function call.
+   * @param options
+   */
+  export function partialDownload(
+    options: BaseParameters &
+      DownloadBytes & {
+        // @microsoft.graph.downloadUrl of the item
+        graphDownloadURL: string;
+        // the item id
+        itemId?: string;
+      }
+  ): Promise<NodeJS.ReadableStream>;
+
+  /**
+   * Download item content partially. You must either provide
+   * graphDownloadURL or the itemId to download the file.
+   *
+   * If only the itemId is provided, the function will try to get
+   * the download URL for you with additional getMetadata() function call.
+   * @param options
+   */
+  export function partialDownload(
+    options: BaseWithDrive &
+      DownloadBytes & {
+        // @microsoft.graph.downloadUrl of the item
+        graphDownloadURL: string;
+        // the item id
+        itemId?: string;
+      }
+  ): Promise<NodeJS.ReadableStream>;
+
+  export function update<updatedItems = any>(
+    options: BaseParameters & {
+      // the item id
+      itemId: string;
+      // the object contains fields to update the item.
+      toUpdate: object;
+    }
+  ): Promise<updatedItems>;
+
+  export function update<updatedItems = any>(
+    options: BaseWithDrive & {
+      // the item id
+      itemId: string;
+      // the object contains fields to update the item.
+      toUpdate: object;
+    }
+  ): Promise<updatedItems>;
 }
